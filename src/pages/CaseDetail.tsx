@@ -1,7 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { getCases } from '@/lib/mockData';
@@ -17,26 +15,19 @@ const CaseDetail = () => {
 
   if (!caseItem) {
     return (
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1 container mx-auto px-4 py-8 flex items-center justify-center">
-          <Card className="p-12 text-center">
-            <h2 className="text-2xl font-bold mb-4">{t('common.noResults')}</h2>
-            <Button onClick={() => navigate('/cases')} className="gov-button-primary">
-              {t('cases.title')}
-            </Button>
-          </Card>
-        </main>
-        <Footer />
+      <div className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[60vh]">
+        <Card className="p-12 text-center">
+          <h2 className="text-2xl font-bold mb-4">{t('common.noResults')}</h2>
+          <Button onClick={() => navigate('/cases')} className="gov-button-primary">
+            {t('cases.title')}
+          </Button>
+        </Card>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         <Button
           variant="ghost"
           onClick={() => navigate('/cases')}
@@ -137,9 +128,6 @@ const CaseDetail = () => {
             </Card>
           </div>
         </div>
-      </main>
-
-      <Footer />
     </div>
   );
 };
