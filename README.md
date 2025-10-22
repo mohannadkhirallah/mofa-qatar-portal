@@ -1,73 +1,127 @@
-# Welcome to your Lovable project
+# MOFA Qatar - Document Attestation Portal
 
-## Project info
+A bilingual (Arabic/English) web application for the Ministry of Foreign Affairs Qatar's document attestation services. Built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/8e0766ae-1dab-4b82-8648-ef22108fa60f
+## Features
 
-## How can I edit this code?
+### Core Functionality
+- **Bilingual Support**: Seamless Arabic/English switching with RTL layout support
+- **Document Attestation Wizard**: 4-step process for academic and medical certificates
+- **Case Management**: Track attestation requests with timeline and status updates
+- **FAQs & Help**: Comprehensive help center with searchable FAQs
+- **Mock Payment Flow**: Complete attestation workflow with payment preview
 
-There are several ways of editing your application.
+### User Experience
+- **Government-Grade Design**: Qatar maroon (#8A1538) and dark blue (#0D4261) branding
+- **Mobile-First**: Fully responsive design for all devices
+- **Accessible**: High contrast, semantic HTML, and keyboard navigation
+- **Professional Typography**: Lato (English) and Noto Kufi Arabic fonts
 
-**Use Lovable**
+### Pages
+1. **Login** - NAS-style authentication (mock)
+2. **Dashboard** - Case overview with quick actions
+3. **Start Attestation** - 4-step wizard (Category → Requirements → Upload → Review)
+4. **Track Cases** - Search and filter case history
+5. **Case Detail** - Timeline, documents, and status tracking
+6. **FAQs** - Searchable knowledge base
+7. **Help** - Contact information and support options
+8. **Profile** - User account management
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8e0766ae-1dab-4b82-8648-ef22108fa60f) and start prompting.
+## Technical Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Framework**: React 18 + TypeScript
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui
+- **Routing**: React Router v6
+- **State**: React Context + Local Storage
+- **Forms**: React Hook Form + Zod validation
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
+- Node.js 18+ and npm
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will run at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Demo Credentials
+Use any username/password to log in (mock authentication).
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/
+│   ├── shared/          # Header, Footer, StatusBadge
+│   └── ui/              # shadcn/ui components
+├── contexts/            # Language context for i18n
+├── lib/
+│   ├── i18n.ts         # Translations (EN/AR)
+│   ├── mockData.ts     # Mock cases and FAQs
+│   └── utils.ts        # Helper functions
+├── pages/              # All page components
+└── index.css           # Design system tokens
+```
 
-## What technologies are used for this project?
+## Design System
 
-This project is built with:
+### Colors
+- **Primary (Qatar Maroon)**: `#8A1538` - Main brand color
+- **Secondary (Dark Blue)**: `#0D4261` - Action buttons
+- **Status Colors**: Submitted, Review, Payment, Ready, Completed
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Typography
+- **English**: Lato (300, 400, 600, 700)
+- **Arabic**: Noto Kufi Arabic (300, 400, 600, 700)
 
-## How can I deploy this project?
+### Responsive Breakpoints
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
 
-Simply open [Lovable](https://lovable.dev/projects/8e0766ae-1dab-4b82-8648-ef22108fa60f) and click on Share -> Publish.
+## Features Ready for Backend Integration
 
-## Can I connect a custom domain to my Lovable project?
+### API Endpoints (Stubbed)
+- `POST /api/auth/nas/login` - Authentication
+- `GET /api/cases` | `POST /api/cases` - Case management
+- `POST /api/upload` - File upload with validation
+- `POST /api/payment/prepare` - Payment processing
+- `POST /api/ai/assist` - AI chat assistant (future)
 
-Yes, you can!
+### Validation Rules
+- File types: PDF, JPG, PNG only
+- Max file size: 10 MB per file
+- Academic attestation fee: 100 QAR
+- Medical attestation fee: 100 QAR
+- Processing time: 1 working day
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Deploy via Lovable:
+1. Open [Lovable](https://lovable.dev/projects/8e0766ae-1dab-4b82-8648-ef22108fa60f)
+2. Click Share → Publish
+
+## References
+
+- [MOFA Qatar Attestation Services](https://mofa.gov.qa/en/eservices/attestation)
+- [MOFA eServices FAQ](https://mofa.gov.qa/en/eservices/faq)
+- [MOFA Attestation Fees](https://mofa.gov.qa/en/consular-services/legalization/legalization)
+
+## License
+
+© 2025 Ministry of Foreign Affairs, State of Qatar. All rights reserved.
