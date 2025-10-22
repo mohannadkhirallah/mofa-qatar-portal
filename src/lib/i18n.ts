@@ -26,6 +26,8 @@ export const translations = {
       browse: 'Browse Files',
       print: 'Print',
       viewAll: 'View All',
+      aiAssistant: 'AI Assistant',
+      menu: 'Menu',
     },
     // Login
     login: {
@@ -169,6 +171,8 @@ export const translations = {
       browse: 'تصفح الملفات',
       print: 'طباعة',
       viewAll: 'عرض الكل',
+      aiAssistant: 'المساعد الذكي',
+      menu: 'القائمة',
     },
     // Login
     login: {
