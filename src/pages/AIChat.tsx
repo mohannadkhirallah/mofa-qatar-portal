@@ -63,6 +63,8 @@ export default function AIChat() {
     }, 1000);
   };
 
+  const isRTL = language === 'ar';
+
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)]">
       <div className="border-b border-border bg-card p-4">
@@ -80,7 +82,9 @@ export default function AIChat() {
             <div
               key={message.id}
               className={`flex gap-3 ${
-                message.role === 'user' ? 'flex-row-reverse' : 'flex-row'
+                message.role === 'user' 
+                  ? isRTL ? 'flex-row' : 'flex-row-reverse'
+                  : isRTL ? 'flex-row-reverse' : 'flex-row'
               }`}
             >
               <div
@@ -101,10 +105,10 @@ export default function AIChat() {
                   message.role === 'user'
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-muted'
-                }`}
+                } ${isRTL ? 'text-right' : 'text-left'}`}
               >
                 <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                <p className="text-xs opacity-70">
+                <p className={`text-xs opacity-70 ${isRTL ? 'text-left' : 'text-right'}`}>
                   {message.timestamp.toLocaleTimeString(language === 'en' ? 'en-US' : 'ar-QA', {
                     hour: '2-digit',
                     minute: '2-digit',
@@ -114,12 +118,12 @@ export default function AIChat() {
             </div>
           ))}
           {isLoading && (
-            <div className="flex gap-3">
+            <div className={`flex gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted">
                 <Bot className="h-4 w-4" />
               </div>
-              <div className="flex-1 space-y-2 rounded-lg bg-muted px-4 py-3">
-                <div className="flex gap-1">
+              <div className={`flex-1 space-y-2 rounded-lg bg-muted px-4 py-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+                <div className={`flex gap-1 ${isRTL ? 'justify-end' : 'justify-start'}`}>
                   <div className="h-2 w-2 rounded-full bg-foreground/40 animate-bounce" />
                   <div className="h-2 w-2 rounded-full bg-foreground/40 animate-bounce delay-100" />
                   <div className="h-2 w-2 rounded-full bg-foreground/40 animate-bounce delay-200" />
@@ -146,8 +150,9 @@ export default function AIChat() {
                 ? 'Type your question here...'
                 : 'اكتب سؤالك هنا...'
             }
-            className="min-h-[60px] resize-none"
+            className={`min-h-[60px] resize-none ${isRTL ? 'text-right' : 'text-left'}`}
             disabled={isLoading}
+            dir={isRTL ? 'rtl' : 'ltr'}
           />
           <Button
             onClick={handleSend}
@@ -155,7 +160,7 @@ export default function AIChat() {
             size="icon"
             className="h-[60px] w-[60px] shrink-0"
           >
-            <Send className="h-4 w-4" />
+            <Send className={`h-4 w-4 ${isRTL ? 'rotate-180' : ''}`} />
           </Button>
         </div>
       </div>

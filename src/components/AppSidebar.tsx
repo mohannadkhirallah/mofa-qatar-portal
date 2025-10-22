@@ -14,8 +14,9 @@ import {
 } from '@/components/ui/sidebar';
 
 export function AppSidebar() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { state } = useSidebar();
+  const isRTL = language === 'ar';
 
   const navItems = [
     { path: '/dashboard', label: t('common.dashboard'), icon: Home },
@@ -27,7 +28,7 @@ export function AppSidebar() {
   ];
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" side={isRTL ? 'right' : 'left'}>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>{t('common.menu')}</SidebarGroupLabel>
@@ -42,7 +43,7 @@ export function AppSidebar() {
                         isActive ? 'bg-sidebar-accent text-sidebar-accent-foreground' : ''
                       }
                     >
-                      <item.icon className="h-4 w-4" />
+                      <item.icon className={`h-4 w-4 ${isRTL ? 'ml-2' : ''}`} />
                       {state === 'expanded' && <span>{item.label}</span>}
                     </NavLink>
                   </SidebarMenuButton>
