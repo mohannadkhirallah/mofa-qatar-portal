@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { mockFAQs } from '@/lib/mockData';
@@ -23,10 +21,7 @@ const FAQs = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <HelpCircle className="h-16 w-16 text-secondary mx-auto mb-4" />
@@ -87,9 +82,6 @@ const FAQs = () => {
             </div>
           </Card>
         </div>
-      </main>
-
-      <Footer />
     </div>
   );
 };

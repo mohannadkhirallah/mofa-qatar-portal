@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { User, LogOut } from 'lucide-react';
@@ -24,10 +22,7 @@ const Profile = () => {
   const user = JSON.parse(localStorage.getItem('mofa_user') || '{"username": "User"}');
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-8">{t('common.profile')}</h1>
 
@@ -65,9 +60,6 @@ const Profile = () => {
             {t('common.logout')}
           </Button>
         </div>
-      </main>
-
-      <Footer />
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -32,10 +30,7 @@ const Cases = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">{t('cases.title')}</h1>
 
         {/* Search and Filters */}
@@ -101,9 +96,6 @@ const Cases = () => {
             </Card>
           )}
         </div>
-      </main>
-
-      <Footer />
     </div>
   );
 };

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -116,10 +114,7 @@ const AttestationWizard = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <h1 className="text-3xl font-bold mb-6">{t('attestation.title')}</h1>
@@ -331,9 +326,6 @@ const AttestationWizard = () => {
             )}
           </div>
         </div>
-      </main>
-
-      <Footer />
     </div>
   );
 };

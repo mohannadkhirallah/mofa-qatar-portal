@@ -1,6 +1,4 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
 import { Card } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
@@ -8,10 +6,7 @@ const Help = () => {
   const { t, language } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold mb-8 text-center">{t('help.title')}</h1>
 
@@ -76,9 +71,6 @@ const Help = () => {
             <p className="text-center font-medium">{t('help.emergencyNotice')}</p>
           </Card>
         </div>
-      </main>
-
-      <Footer />
     </div>
   );
 };
